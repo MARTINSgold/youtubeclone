@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>youtube.com clone</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <style>
+            .p{
+                font-family: roboto,arial;
+
+            }
+            .thumbnail-1{
+                width: 300px;
+                display: inline;
+                position: relative;
+            }
+            .search-bar{
+                display: block;
+                flex: 1;
+                height: 28px;
+                padding: 5px;
+                font-size: 12px;
+                border-width: 1px;
+                border-style: solid;
+                border-color: gray;
+                border-radius: 2;
+                box-shadow: inset 1px 2px 2px rgb(0, 0, 0.5);
+                
+            }
+            .search-bar::placeholder{
+                font-family: arial;
+                font-size: 16px;
+            }
+
+
+            .video-title{
+                margin-top: 0;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 20px;
+                margin-bottom: 15px;
+            }
+            
+            .video-preview{
+                width: 300px;
+                display: inline-block;
+                vertical-align: top;
+                margin-right: 15px;
+                
+            }
+            .channel-picture{
+                display: inline-block;
+                width: 50px;
+                vertical-align: top;
+            }
+            .video-info{
+                display: inline-block;
+                width: 245px;
+
+                
+                
+            }
+            .profile-picture{
+                width: 10%;
+                border-radius: 50px;
+                
+                
+            }
+            .video-title{
+                text-align: left;
+                flex-direction: column;
+                
+            
+            }
+            .video-author{
+                font-size: 12px;
+                color: rgb(96, 96,96);
+            }
+            .video-stat{
+                font-size: 12px;
+                color: rgb(96, 96,96);
+            }
+            .profile-picturee{
+                border-radius: 50px;
+                width:38px;
+            }
+            .video-author2,.video-stat2{
+                font-size: 12px;
+                color: rgb(96, 96,96);
+                text-decoration-color: aqua;
+            }
+            .video-info-grid{
+
+            }
+            .video-grid{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                column-gap: 5px;
+                row-gap: 30px;
+            }
+            .container-page{
+                
+            }
+            body{
+                background-color: rgb(80, 228, 228);
+                margin: 1;
+                padding-top: 70px;
+                padding-left: 100px;
+                padding-right: 25px;
+            }
+            .header{
+                height: 55px;
+                flex-direction: row;
+                display: flex;
+                justify-content: space-between;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                background-color: white;
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+                border-bottom-color: rgb(240, 236, 236);
+                z-index: 100;
+            }
+            .left-section{
+                
+                
+                display: flex;
+                align-items: center;
+            }
+            .middle-section{
+                
+                flex: 1;
+                margin-left: 70px;
+                margin-right: 35px;
+                max-width: 500px;
+                display: flex;
+                align-items: center;
+            }
+            .right-section{
+                margin-right: 20px;
+                width: 180px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-shrink: 0;
+            }
+            .threeline{
+                height: 20px;
+                margin-left: 24px;
+                margin-right: 24px;
+
+            }
+            .logoutube{
+                height: 20px;
+
+            }
+            .searchsomething{
+                height: 40px;
+                width: 66px;
+            
+            }
+
+            .searchsomething .tooltip{
+                position: absolute;
+                background-color: gray;
+                color: white;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                padding-left: 8px;
+                padding-right: 8px;
+                border-radius: 2px;
+                font-size: 12px;
+                bottom: -25px;
+                opacity: 0;
+                transition: opacity 0.15s;
+            }
+            .searchsomething:hover .tooltip{
+                opacity: 4;
+            }
+
+            
+            .voice{
+                height: 35px;
+                width: 35px;
+                border-radius: 15px;
+                border: none;
+                margin-left: 3px;
+                background-color: rgb(252, 244, 244);
+            }
+            .search-icon{
+                height: 23px;
+                margin-top: 2px;
+            }
+            .vcd{
+                height: 24px;
+
+            }
+            .squares{
+                height: 24px;
+
+            }
+            .notification{
+                height: 24px;
+
+            }
+            .favourite{
+                height: 25px;
+                border-radius: 30px;
+
+            }
+            .sidebar{
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                top: 55px;
+                background-color: white;
+                width: 72px;
+                z-index: 100px;
+            }
+            .video-time{
+                background-color: black;
+                color: white;
+                padding-bottom: 1px;
+                width: 37px;
+                margin-bottom: 5px;
+                font-weight: 600;
+                border-radius: 4px;
+                 }
+                 .sidebar-link{
+                  display: flex;
+                    height: 70px;
+                    margin-bottom: 1px;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    cursor: pointer;
+                    
+                 }
+                 .sidebar-link:hover{
+                    background-color: rgb(243, 239, 239);
+                 }
+                 .sidebar-link img{
+                    height: 28px;
+                    margin-bottom: 4px;
+                 }
+                 .sidebar-link div{
+                    font-family: arial;
+                    font-size: 10px;
+                 }
+                 .
+
+            
+
+        </style>
+    </head>
+    <body  div class="container-page">
+        <div class="header">
+            <div class="left-section"><img class="threeline" src="https://supersimple.dev/public/img/exercises/youtube/icons/hamburger-menu.svg" >
+            <img class="logoutube" src="https://supersimple.dev/public/img/exercises/youtube/icons/youtube-logo.svg"></div>
+            <div class="middle-section">
+                <input class="search-bar" type="text" placeholder="search">
+                <button class="searchsomething">
+                    <img class="search-icon" src="https://supersimple.dev/public/img/exercises/youtube/icons/search.svg">
+                    <div class="tooltip">search</div>
+                </button>
+                <button class="voice">
+                    <img src="https://supersimple.dev/public/img/exercises/youtube/icons/voice-search-icon.svg" alt="">
+                    
+                </button>
+            </div>
+<div class="right-section"><img class="vcd" src="https://supersimple.dev/public/img/exercises/youtube/icons/upload.svg" >
+    <img class="squares" src="https://supersimple.dev/public/img/exercises/youtube/icons/youtube-apps.svg" alt="">
+   <img class="notification" src="https://supersimple.dev/public/img/exercises/youtube/icons/notifications.svg">
+                              
+                        
+    
+    <img class="favourite" src="https://th.bing.com/th/id/R.7cfd523fe99e392ad504c439ef020a5c?rik=uagNcjLeLEmjtA&pid=ImgRaw&r=0" alt="">
+            </div>
+            
+
+        </div>
+    <div class="sidebar">
+        <div class="sidebar-link"><div>home</div><img src="https://supersimple.dev/public/img/exercises/youtube/icons/home.svg" alt=""></div>
+        <div class="sidebar-link"><div>explore</div><img src="https://supersimple.dev/public/img/exercises/youtube/icons/explore.svg" alt=""></div>
+        <div class="sidebar-link"><div>subscription</div><img src="https://supersimple.dev/public/img/exercises/youtube/icons/subscriptions.svg" alt=""></div>
+        <div class="sidebar-link"><div>originals</div><img src="https://supersimple.dev/public/img/exercises/youtube/icons/originals.svg" alt=""></div>
+        <div class="sidebar-link"><div>YouTube music</div><img src="https://supersimple.dev/public/img/exercises/youtube/icons/youtube-music.svg" alt=""></div>
+        <div class="sidebar-link"><div>library</div><img src="https://supersimple.dev/public/img/exercises/youtube/icons/library.svg" alt=""></div>
+
+     </div>
+        
+
+
+        <div class="video-grid">
+
+            <div class="video-preview">
+                <div class="channel-picture"><img class="thumbnail-1" src="https://supersimple.dev/public/img/exercises/youtube/thumbnails/thumbnail-1.webp">
+                <div class="video-time">14:20</div></div>
+            
+            
+                        <div class="video-title"> 
+                    <div class="video-info-grid"><img class="profile-picture"  src=" https://supersimple.dev/public/img/exercises/youtube/channel-profile-pics/channel-1.jpeg" ></div>
+                        <div class="video-info">
+                            
+                            <p>Talking tech and Ai with google CEO sunder pichail</p>
+                            <p class="video-author">Marques Brownlee</p>
+                            <p class="video-stat">3.4m view &#183; 6months ago
+                            </p>
+                        </div>
+                            </div>
+                    </div>
+                <div class="video-preview ">
+            
+                    
+                    <img class="thumbnail-1" src="	https://supersimple.dev/public/img/exercises/youtube/thumbnails/thumbnail-2.webp">
+                    <div><img class="profile-picturee" src="https://supersimple.dev/public/img/exercises/youtube/channel-profile-pics/channel-2.jpeg" >
+                    <div class="video-time">8:22</div></div>
+                    
+                    
+                    <p>Try not to laugh challange &#916;9</p>
+                    <p class="video-author 2">Markiplier</p>
+                    <p class="video-stat2">19m view &#183; 4years ago
+                    </p>
+                </div>
+                   
+                <div class="video-preview">
+                    <div class="channel-picture"><img class="thumbnail-1" src="https://supersimple.dev/public/img/exercises/youtube/thumbnails/thumbnail-3.webp"></div>
+                
+                
+                            <div class="video-title"> 
+                        <div class="video-info-grid"><img class="profile-picture"  src=" https://supersimple.dev/public/img/exercises/youtube/channel-profile-pics/channel-3.jpeg" >
+                        <div class="video-time">9:13</div></div>
+                            <div class="video-info">
+                                
+                                <p>Crazy tiktoks taken moment before disaster</p>
+                                <p class="video-author">sssniperwolf</p>
+                                <p class="video-stat">12m view &#183; 1year ago
+                                </p>
+                            </div>
+                                </div>
+                        </div>
+                    <div class="video-preview ">
+                
+                        
+                        <img class="thumbnail-1" src="	https://supersimple.dev/public/img/exercises/youtube/thumbnails/thumbnail-4.webp">
+                        <div><img class="profile-picturee" src="https://supersimple.dev/public/img/exercises/youtube/channel-profile-pics/channel-4.jpeg" >
+                        <div class="video-time">22:09</div></div>
+                        
+                        
+                        <p>The simplest math problem no one can solve-collats conjecture</p>
+                        <p class="video-author 2">veritasium</p>
+                        <p class="video-stat2">18m view &#183; 4months ago
+                        </p>
+                    </div>
+                      
+                    <div class="video-preview">
+    <div class="channel-picture"><img class="thumbnail-1" src="https://supersimple.dev/public/img/exercises/youtube/thumbnails/thumbnail-5.webp">
+    <div class="video-time">11:17</div></div>
+                    
+                    
+                                <div class="video-title"> 
+                            <div class="video-info-grid"><img class="profile-picture"  src=" https://supersimple.dev/public/img/exercises/youtube/channel-profile-pics/channel-5.jpeg" ></div>
+                                <div class="video-info">
+                                    
+                                    <p>kadanes Algorithm to maximum sum subarray problems</p>
+                                    <p class="video-author">cs DOJO</p>
+                                    <p class="video-stat">519k view &#183; 5years ago
+                                    </p>
+                                </div>
+                                    </div>
+                            </div>
+                        <div class="video-preview ">
+                    
+                        
+    <img class="thumbnail-1" src="	https://supersimple.dev/public/img/exercises/youtube/thumbnails/thumbnail-6.webp">
+    <div><img class="profile-picturee" src="https://supersimple.dev/public/img/exercises/youtube/channel-profile-pics/channel-6.jpeg" >
+     <div class="video-time">19:59</div>
+    </div>
+                            
+                            
+                            <p>Anything you can fit in the circle i'll pay for it </p>
+                            <p class="video-author 2">Mr Beast</p>
+                            <p class="video-stat2">141m view &#183; 1year ago
+                            </p>
+                        </div>
+
+
+
+        </div>
+
+
+
+    </body>
+</html>
